@@ -2,9 +2,9 @@
 	export let data;
 	import BlurFade from '$lib/components/motion/blurfade.svelte';
 	import Particles from '@/lib/components/motion/particles.svelte';
+	import { SITE_URL } from '@/lib/site-config';
 
-	const { title, excerpt, date, updated, coverImage, coverWidth, coverHeight, categories } =
-		data.meta;
+	const { title, excerpt, coverImage, coverWidth, coverHeight } = data.meta;
 	const { PostContent } = data;
 </script>
 
@@ -17,10 +17,10 @@
 	<meta name="twitter:title" content={title} />
 	<meta property="og:description" content={excerpt} />
 	<meta name="twitter:description" content={excerpt} />
-	<!-- <meta property="og:image" content="https://yourdomain.com/image_path" /> -->
+	<meta property="og:image" content={`${SITE_URL}${coverImage}`} />
 	<meta property="og:image:width" content={coverWidth} />
 	<meta property="og:image:height" content={coverHeight} />
-	<!-- <meta name="twitter:image" content="https://yourdomain.com/image_path" /> -->
+	<meta name="twitter:image" content={`${SITE_URL}${coverImage}`} />
 </svelte:head>
 
 <BlurFade delay={0.25} class="left-0 top-0 -z-10 h-full w-full overflow-x-clip">
