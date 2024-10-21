@@ -25,7 +25,7 @@
 			><defs
 				><style>
 					.cls-1 {
-						fill: #fc3;
+						fill: #ffcc33;
 					}
 					.cls-1,
 					.cls-2 {
@@ -38,7 +38,7 @@
 			><g id="Layer_2" data-name="Layer 2"
 				><g id="Layer_1-2" data-name="Layer 1"
 					><path
-						class="cls-1"
+						class="fill-yellow-300"
 						d="M79.59,38.12a3,3,0,0,1,0,4.21L42.34,79.58a3,3,0,0,1-4.22,0L.88,42.33a3,3,0,0,1,0-4.2L38.12.87a3,3,0,0,1,4.22,0"
 					/><path
 						class="cls-2"
@@ -221,7 +221,7 @@
 			viewBox="0 0 512 512"
 			fill="none"
 		>
-			<rect width="512" height="512" fill="black" />
+			<rect width="512" height="512" fill="black" stroke="white" stroke-width="10" />
 			<rect x="97.0973" y="91.3297" width="140" height="330" fill="white" />
 		</svg>
 	</Orbitingcircles>

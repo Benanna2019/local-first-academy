@@ -1,12 +1,15 @@
-<script>
+<script lang="ts">
+	export let data;
 	import BlurFade from '$lib/components/motion/blurfade.svelte';
+	import ContentCard from '@/lib/components/content-card.svelte';
+	import type { Essay } from './+page.js';
+
+	const { essays }: { essays: Essay[] } = data;
 </script>
 
-<BlurFade delay={0.25} class="pointer-events-none left-0 top-0 -z-10 h-full w-full overflow-x-clip">
-	<section class="min-h-screen w-full px-6 pb-12 pt-16 sm:pb-20 sm:pt-52">
-		<div
-			class="fade animate-fade pointer-events-none absolute left-0 top-0 -z-10 h-full w-full overflow-x-clip"
-		>
+<div class="left-0 top-0 -z-10 h-full w-full overflow-x-clip">
+	<section class="w-full px-6 pb-12 pt-16 sm:pb-20 sm:pt-32">
+		<div class="fade animate-fade absolute left-0 top-0 -z-10 h-full w-full overflow-x-clip">
 			<div
 				class="parallax-element absolute top-0 h-[1000px] w-full transform-gpu after:absolute after:bottom-0 after:left-0 after:h-full after:w-full after:bg-gradient-to-t after:from-black after:to-black/0"
 				style="transform: translateY(-55.3px) translate3d(0px, 0px, 0px);"
@@ -62,4 +65,18 @@
 			</BlurFade>
 		</header>
 	</section>
-</BlurFade>
+	<section class="relative flex w-full gap-14 px-6 pt-0 sm:pt-0">
+		<div
+			class="mx-auto flex w-full max-w-none flex-col items-center justify-between md:max-w-7xl"
+			style="gap:64px"
+		>
+			<div
+				class="grid w-full grid-cols-2 items-stretch gap-8 md:grid-cols-3 md:gap-10 [@media(max-width:400px)]:grid-cols-1"
+			>
+				{#each essays as essay}
+					<ContentCard {essay} />
+				{/each}
+			</div>
+		</div>
+	</section>
+</div>

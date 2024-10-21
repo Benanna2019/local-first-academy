@@ -16,7 +16,7 @@
 	$effect(() => {
 		if (typeof window !== 'undefined') {
 			googleLoginUrl = db.auth.createAuthorizationURL({
-				clientName: 'lofi academy',
+				clientName: 'Local First Academy',
 				redirectURL: window.location.href
 			});
 		}
@@ -82,12 +82,14 @@
 </script>
 
 <header
-	class="sticky top-0 z-50 flex w-full justify-center px-6 pt-4 text-white before:pointer-events-none before:absolute before:top-0 before:h-56 before:w-full before:-translate-y-1/2 before:rounded-[100%] before:bg-gradient-to-b before:from-black/80 before:from-30% before:to-black/0 before:opacity-100 before:blur-2xl before:transition-opacity before:duration-300 before:ease-out"
+	class="sticky top-0 z-10 flex w-full justify-center px-6 pt-4 text-white before:pointer-events-none before:absolute before:top-0 before:h-56 before:w-full before:-translate-y-1/2 before:rounded-[100%] before:bg-gradient-to-b before:from-black/80 before:from-30% before:to-black/0 before:opacity-100 before:blur-2xl before:transition-opacity before:duration-300 before:ease-out"
 >
-	<div class="z-10 flex w-full max-w-7xl items-center justify-between text-inherit">
-		<nav class="mx-auto w-full items-center justify-between md:flex">
-			<a aria-label="Navigate to the homepage" href="/"> Ｌｏｆｉ Ａｃａｄｅｍｙ </a>
-			<ul class="relative hidden items-center bg-orange-600/0 text-sm font-medium md:flex">
+	<div class="z-10 flex w-full max-w-[90rem] items-center justify-between text-inherit">
+		<nav class=" w-full items-center justify-between md:flex">
+			<a aria-label="Navigate to the homepage" href="/" class="w-1/4">
+				Ｌｏｃａｌ Ｆｉｒｓｔ Ａｃａｄｅｍｙ</a
+			>
+			<ul class="relative hidden w-1/2 items-center bg-orange-600/0 text-sm font-medium md:flex">
 				<li>
 					<Button
 						variant="link"
@@ -153,7 +155,7 @@
 				</div>
 			</ul>
 			<div class="hidden items-center gap-4 md:flex">
-				<div class="w-32">
+				<div class="w-1/4">
 					{#if user.state.user}
 						{@render userMenu()}
 					{:else}
@@ -222,7 +224,7 @@
 	</div>
 	{#if isToggled}
 		<nav
-			class="fade animate-fadeSm fixed top-0 z-[-1] h-screen w-full bg-black/50 px-6 pt-24 text-white backdrop-blur-2xl ease-out md:hidden"
+			class="fade animate-fadeSm fixed top-0 h-screen w-full bg-black/50 px-6 pt-24 text-white backdrop-blur-2xl ease-out md:hidden"
 		>
 			<nav class="flex gap-10 [@media(min-width:400px)]:gap-20">
 				<div class="flex flex-col">

@@ -72,10 +72,6 @@ const config: Config = {
 			fontFamily: {
 				sans: [...fontFamily.sans]
 			},
-			backgroundImage: {
-				'baking-software': "url('/bakingsoftware.png')",
-				'working-outdoors': "url('/outdoorworking.png')"
-			},
 			animation: {
 				orbit: 'orbit calc(var(--duration)*1s) linear infinite'
 			},

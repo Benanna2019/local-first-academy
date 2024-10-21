@@ -3,8 +3,8 @@
 		<div
 			class="row-start-4 mt-10 flex flex-row justify-between gap-10 text-neutral-100 sm:col-span-2 md:row-start-auto md:mt-0 md:h-full md:flex-col"
 		>
-			Ｌｏｆｉ Ａｃａｄｅｍｙ
-			<p class="text-sm font-normal text-neutral-400">© 2024 Lofi Academy</p>
+			Ｌｏｃａｌ Ｆｉｒｓｔ Ａｃａｄｅｍｙ
+			<p class="text-sm font-normal text-neutral-400">© 2024 Local First Academy</p>
 		</div>
 		<div class="flex flex-col gap-10">
 			<ul class="flex flex-col gap-2">
