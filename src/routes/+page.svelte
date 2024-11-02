@@ -13,18 +13,16 @@
 				class="parallax-element absolute top-0 h-[1000px] w-full transform-gpu after:absolute after:bottom-0 after:left-0 after:h-full after:w-full after:bg-gradient-to-t after:from-black after:to-black/0"
 				style="transform: translateY(-55.3px) translate3d(0px, 0px, 0px);"
 			>
-				<img
-					alt="page background"
-					fetchpriority="high"
-					decoding="async"
-					data-nimg="fill"
-					class="absolute inset-0 h-[100%] w-[100%] object-cover"
-					src="/mountains.png"
-				/>
+				<div
+					class="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center gap-10 lg:flex-nowrap lg:justify-between"
+				>
+					<LoFiOrbit />
+					<Particles className="absolute inset-0" refresh={true} />
+				</div>
 			</div>
 			<!-- Keep this but find ideas more fitting for pages -->
 			<div
-				class="flex h-max w-full transform-gpu items-end justify-end border-2 border-red-500"
+				class="flex h-max w-full transform-gpu items-end justify-end"
 				style="transform: translateY(-73.2px) translate3d(0px, 0px, 0px);"
 			>
 				<!-- <img
@@ -36,43 +34,6 @@
 					width="400"
 				/> -->
 			</div>
-		</div>
-		<header>
-			<BlurFade delay={0.7} class="mx-auto flex w-full max-w-7xl flex-col gap-6 sm:gap-10">
-				<h1
-					class="text-balance text-7xl font-[800] leading-[1] -tracking-[2.5px] text-white sm:text-[80px] [@media(max-width:500px)]:text-5xl"
-				>
-					Learn to build <br class="hidden lg:inline" />
-					Local First Software
-				</h1>
-				<h2
-					class="reveal animate-revealHero2 -mt-2 text-balance text-xl font-medium text-neutral-100 sm:-mt-4"
-				>
-					There is a more refreshing way to build software. <br class="hidden lg:inline" />
-					We will show you the way.
-					<br class="hidden lg:inline" />
-				</h2>
-				<!-- Should probably leave the below based off if they are logged in or not -->
-				<!-- <div
-					class="reveal animate-revealHero3 flex flex-col gap-2 sm:items-center [@media(min-width:340px)]:flex-row"
-				>
-					<a
-						aria-label="Get started for free"
-						class="group flex w-max items-center gap-1 rounded-full border-white bg-neutral-200 px-3.5 py-2 text-sm font-semibold text-neutral-800 transition-colors sm:hover:bg-white sm:hover:text-black"
-						href="">Get started for free</a
-					>
-				</div> -->
-			</BlurFade>
-		</header>
-	</section>
-	<section
-		class="relative z-10 flex min-h-screen w-full gap-14 overflow-visible px-6 pt-40 sm:pb-16 sm:pt-64"
-	>
-		<div
-			class="gap-10lg:flex-nowrap mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center lg:justify-between"
-		>
-			<LoFiOrbit />
-			<Particles className="absolute inset-0" refresh={true} />
 		</div>
 	</section>
 	<section class="relative z-10 flex w-full gap-14 px-6 sm:pb-16">

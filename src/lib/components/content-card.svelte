@@ -25,8 +25,9 @@
 	class="reveal animate-revealContent group relative flex flex-col overflow-hidden rounded-md bg-neutral-900 transition-colors duration-300 ease-out hover:cursor-pointer sm:hover:bg-neutral-800"
 	href={`/essays/${generatedSlug}`}
 	style="animation-duration: 2s; animation-delay: 1s;"
-	><div class="relative aspect-video max-h-[300px] w-full overflow-hidden">
-		<img
+>
+	<!-- <div class="relative aspect-video max-h-[300px] w-full overflow-hidden">
+		 <img
 			alt={title}
 			loading="lazy"
 			decoding="async"
@@ -34,8 +35,8 @@
 			class="object-cover transition-transform duration-700 ease-out sm:group-hover:scale-105"
 			src={coverImage}
 			style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"
-		/>
-	</div>
+		/> 
+	</div> -->
 	<h3 class="mb-4 mt-6 px-6 text-xl font-semibold text-neutral-100">
 		{title}
 	</h3>

@@ -13,9 +13,9 @@
 	)}
 >
 	<span
-		class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-[#fabe25]/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent"
+		class="pointer-events-none whitespace-pre-wrap bg-[#fabe25] bg-clip-text text-center text-8xl font-semibold leading-none text-transparent"
 	>
-		Local First
+		Local First Academy
 	</span>
 
 	<!--  Inner Circles  -->

@@ -3,6 +3,7 @@
 	import BlurFade from '$lib/components/motion/blurfade.svelte';
 	import ContentCard from '@/lib/components/content-card.svelte';
 	import type { Essay } from './+page.js';
+	import Particles from '@/lib/components/motion/particles.svelte';
 
 	const { essays }: { essays: Essay[] } = data;
 </script>
@@ -10,19 +11,6 @@
 <div class="left-0 top-0 -z-10 h-full w-full overflow-x-clip">
 	<section class="w-full px-6 pb-12 pt-16 sm:pb-20 sm:pt-32">
 		<div class="fade animate-fade absolute left-0 top-0 -z-10 h-full w-full overflow-x-clip">
-			<div
-				class="parallax-element absolute top-0 h-[1000px] w-full transform-gpu after:absolute after:bottom-0 after:left-0 after:h-full after:w-full after:bg-gradient-to-t after:from-black after:to-black/0"
-				style="transform: translateY(-55.3px) translate3d(0px, 0px, 0px);"
-			>
-				<img
-					alt="page background"
-					fetchpriority="high"
-					decoding="async"
-					data-nimg="fill"
-					class="absolute inset-0 h-[100%] w-[100%] object-cover"
-					src="/lofilibrary.png"
-				/>
-			</div>
 			<!-- Keep this but find ideas more fitting for pages -->
 			<!-- <div
 				class="parallax-element absolute top-0 flex h-max w-full transform-gpu items-end justify-end"
@@ -71,12 +59,13 @@
 			style="gap:64px"
 		>
 			<div
-				class="grid w-full grid-cols-2 items-stretch gap-8 md:grid-cols-3 md:gap-10 [@media(max-width:400px)]:grid-cols-1"
+				class="z-20 grid w-full grid-cols-2 items-stretch gap-8 md:grid-cols-3 md:gap-10 [@media(max-width:400px)]:grid-cols-1"
 			>
 				{#each essays as essay}
 					<ContentCard {essay} />
 				{/each}
 			</div>
+			<Particles className="absolute inset-0" refresh={true} />
 		</div>
 	</section>
 </div>

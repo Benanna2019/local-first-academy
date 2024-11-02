@@ -1,5 +1,6 @@
 <script>
 	import BlurFade from '$lib/components/motion/blurfade.svelte';
+	import Particles from '@/lib/components/motion/particles.svelte';
 </script>
 
 <BlurFade delay={0.25} class="pointer-events-none left-0 top-0 -z-10 h-full w-full overflow-x-clip">
@@ -7,19 +8,6 @@
 		<div
 			class="fade animate-fade pointer-events-none absolute left-0 top-0 -z-10 h-full w-full overflow-x-clip"
 		>
-			<div
-				class="parallax-element absolute top-0 h-[1000px] w-full transform-gpu after:absolute after:bottom-0 after:left-0 after:h-full after:w-full after:bg-gradient-to-t after:from-black after:to-black/0"
-				style="transform: translateY(-55.3px) translate3d(0px, 0px, 0px);"
-			>
-				<img
-					alt="page background"
-					fetchpriority="high"
-					decoding="async"
-					data-nimg="fill"
-					class="absolute inset-0 h-[100%] w-[100%] object-cover"
-					src="/outdoorworking.png"
-				/>
-			</div>
 			<!-- Keep this but find ideas more fitting for pages -->
 			<!-- <div
 				class="parallax-element absolute top-0 flex h-max w-full transform-gpu items-end justify-end"
@@ -50,17 +38,8 @@
 					of local first tech into your workflow.
 					<br class="hidden lg:inline" />
 				</h2>
-				<!-- Should probably leave the below based off if they are logged in or not -->
-				<!-- <div
-					class="reveal animate-revealHero3 flex flex-col gap-2 sm:items-center [@media(min-width:340px)]:flex-row"
-				>
-					<a
-						aria-label="Get started for free"
-						class="group flex w-max items-center gap-1 rounded-full border-white bg-neutral-200 px-3.5 py-2 text-sm font-semibold text-neutral-800 transition-colors sm:hover:bg-white sm:hover:text-black"
-						href="">Get started for free</a
-					>
-				</div> -->
 			</BlurFade>
 		</header>
+		<Particles className="absolute inset-0" refresh={true} />
 	</section>
 </BlurFade>
