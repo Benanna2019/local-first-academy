@@ -1,0 +1,693 @@
+[
+	{
+		"projectName": "Dexie.js",
+		"projectMaintainer": "David Fahlander",
+		"link": "https://dexie.org/",
+		"icon": "https://dexie.org/assets/images/dexie-icon-64x64.png",
+		"painPoints": [
+			"storing-data",
+			"managing-reactivity",
+			"keeping-in-sync"
+		],
+		"description": "A minimalistic wrapper for IndexedDB that provides a clean API for storing and querying data locally with reactive capabilities.",
+		"bestFor": [
+			"Offline-first web applications",
+			"Apps needing efficient local data storage and queries"
+		],
+		"id": "dexie.js"
+	},
+	{
+		"projectName": "DXOS",
+		"projectMaintainer": "dxos.org",
+		"link": "https://dxos.org",
+		"icon": "https://docs.dxos.org/images/logotype/dxos-hero-white.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-conflicts",
+			"storing-data",
+			"managing-data-flow",
+			"managing-reactivity"
+		],
+		"description": "DXOS provides a platform for building peer-to-peer, local-first applications with seamless synchronization and offline support. It focuses on real-time collaboration, decentralized architecture, and data ownership.",
+		"bestFor": [
+			"Real-time collaborative tools for teams",
+			"Peer-to-peer note-taking apps with local-first sync"
+		],
+		"id": "dxos"
+	},
+	{
+		"projectName": "Dat Stack",
+		"projectMaintainer": "hypercore/bee/store/drive (by dat-ecosystem)",
+		"link": "https://dat-ecosystem.org/",
+		"icon": "https://raw.githubusercontent.com/dat-ecosystem/organization/main/assets/logo%20%26%20visuals%20final/logo/Dat%20Ecosystem%20-%20Logo%20Design%20-%202022%20-%2002-04.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"storing-data",
+			"managing-data-flow"
+		],
+		"description": "The Dat Stack is a suite of decentralized tools and protocols for building peer-to-peer applications. It offers a robust foundation for distributed data sharing, storage, and syncing in offline-first environments.",
+		"bestFor": [
+			"Decentralized file-sharing apps",
+			"Data collaboration tools for offline teams"
+		],
+		"id": "dat-stack"
+	},
+	{
+		"projectName": "ElectricSQL",
+		"projectMaintainer": "ElectricSQL team",
+		"link": "https://electric-sql.com",
+		"icon": "https://raw.githubusercontent.com/electric-sql/meta/main/identity/ElectricSQL-icon-light-trans.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-conflicts",
+			"storing-data",
+			"managing-data-flow",
+			"managing-reactivity"
+		],
+		"description": "ElectricSQL extends traditional relational databases with offline-first capabilities, enabling automatic data synchronization and conflict resolution for distributed applications. It bridges the gap between local-first data and server-side persistence.",
+		"bestFor": [
+			"Offline-first apps with real-time syncing",
+			"E-commerce platforms with reliable offline functionality"
+		],
+		"id": "electricsql"
+	},
+	{
+		"projectName": "Evolu",
+		"projectMaintainer": "Daniel Steigerwald",
+		"link": "https://www.evolu.dev/",
+		"icon": "https://raw.githubusercontent.com/evoluhq/evolu/main/apps/web/public/favicon-32x32.png",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-conflicts",
+			"storing-data",
+			"managing-reactivity"
+		],
+		"description": "Evolu is a privacy-focused, local-first database designed to sync seamlessly across devices. It emphasizes offline-first functionality, enabling developers to build resilient, user-friendly applications that prioritize data ownership and security.",
+		"bestFor": [
+			"Personal productivity apps with offline-first capabilities",
+			"Privacy-first apps requiring secure, local-first data"
+		],
+		"id": "evolu"
+	},
+	{
+		"projectName": "Liveblocks",
+		"projectMaintainer": "Liveblocks team",
+		"link": "https://liveblocks.io/",
+		"icon": "https://liveblocks.io/favicon.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-reactivity",
+			"managing-conflicts",
+			"managing-data-flow"
+		],
+		"description": "Liveblocks is a platform for building collaborative real-time experiences. It provides tools for managing presence, syncing state between users, and creating reactive interfaces for live collaboration.",
+		"bestFor": [
+			"Collaborative whiteboard or design tools",
+			"Real-time multiplayer applications"
+		],
+		"id": "liveblocks"
+	},
+	{
+		"projectName": "Fireproof",
+		"projectMaintainer": "Fireproof team",
+		"link": "https://use-fireproof.com/",
+		"icon": "https://fireproof.storage/static/img/flame.svg",
+		"painPoints": [
+			"storing-data",
+			"keeping-in-sync",
+			"managing-data-flow",
+			"managing-conflicts"
+		],
+		"description": "Fireproof is a local-first database designed for offline-capable and conflict-resilient applications. It provides developers with tools to store data securely, sync changes seamlessly, and resolve conflicts in distributed systems.",
+		"bestFor": [
+			"Offline-first apps with robust data storage needs",
+			"Apps requiring conflict-free data synchronization across devices"
+		],
+		"id": "fireproof"
+	},
+	{
+		"projectName": "Gun",
+		"projectMaintainer": "Mark Nadal",
+		"link": "https://gun.eco",
+		"icon": "https://gun.eco/icons/icon-48x48.png?v=dfecf3c0fa09798b200a8a8b9fa0f172",
+		"painPoints": [
+			"storing-data",
+			"keeping-in-sync",
+			"managing-conflicts",
+			"managing-data-flow",
+			"connectivity-awareness"
+		],
+		"description": "Gun is a decentralized, graph-based database designed for real-time, offline-first applications. It provides automatic conflict resolution, fast synchronization, and supports peer-to-peer connections for distributed systems.",
+		"bestFor": [
+			"Decentralized messaging apps",
+			"Peer-to-peer social networks"
+		],
+		"id": "gun"
+	},
+	{
+		"projectName": "Instant",
+		"projectMaintainer": "Stepan Parunashvili",
+		"link": "https://www.instantdb.com",
+		"icon": "https://www.instantdb.com/img/icon/apple-touch-icon-152x152.png",
+		"painPoints": [
+			"keeping-in-sync",
+			"storing-data",
+			"managing-reactivity",
+			"managing-data-flow",
+			"managing-conflicts"
+		],
+		"description": "Instant is a local-first database optimized for speed and real-time reactivity. It simplifies building reactive applications by enabling offline-first capabilities and seamless data synchronization with minimal developer effort.",
+		"bestFor": [
+			"Real-time collaboration tools",
+			"Offline-first dashboards with reactive data"
+		],
+		"id": "instant"
+	},
+	{
+		"projectName": "m-ld",
+		"projectMaintainer": "George Svarovsky et al.",
+		"link": "https://m-ld.org/",
+		"icon": "https://m-ld.org/m-ld.inverse.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-conflicts",
+			"storing-data",
+			"managing-data-flow",
+			"managing-reactivity"
+		],
+		"description": "m-ld is a semantic, decentralized database that enables real-time collaboration with conflict-free replication. It provides a robust solution for syncing data across devices and systems while maintaining data integrity.",
+		"bestFor": [
+			"Collaborative document editing tools",
+			"Knowledge management apps with distributed data"
+		],
+		"id": "m-ld"
+	},
+	{
+		"projectName": "NextGraph",
+		"projectMaintainer": "Niko Bonnieure",
+		"link": "https://nextgraph.org/",
+		"icon": "https://nextgraph.org/favicon.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-conflicts",
+			"storing-data",
+			"managing-data-flow",
+			"managing-reactivity"
+		],
+		"description": "NextGraph is a graph-based platform designed for building distributed, collaborative applications. It focuses on decentralization, offline-first capabilities, and seamless data synchronization.",
+		"bestFor": [
+			"Decentralized knowledge-sharing platforms",
+			"Collaborative graph-based visual tools"
+		],
+		"id": "nextgraph"
+	},
+	{
+		"projectName": "PouchDB",
+		"projectMaintainer": "PouchDB contributors",
+		"link": "https://pouchdb.com",
+		"icon": "https://pouchdb.com/static/favicon.ico",
+		"painPoints": [
+			"storing-data",
+			"keeping-in-sync",
+			"managing-conflicts",
+			"managing-data-flow",
+			"connectivity-awareness"
+		],
+		"description": "PouchDB is an open-source, local-first JavaScript database designed to work offline and sync seamlessly with CouchDB or compatible servers. It simplifies building resilient, offline-capable applications.",
+		"bestFor": [
+			"Offline-first web or mobile apps",
+			"Applications requiring seamless local-to-cloud sync"
+		],
+		"id": "pouchdb"
+	},
+	{
+		"projectName": "remoteStorage",
+		"projectMaintainer": "remoteStorage contributors",
+		"link": "https://remotestorage.io",
+		"icon": "https://remotestorage.io/logo.svg",
+		"painPoints": [
+			"storing-data",
+			"keeping-in-sync",
+			"managing-data-flow",
+			"connectivity-awareness"
+		],
+		"description": "remoteStorage is an open protocol and library that enables users to store and manage their data on their own servers, while providing apps with offline and sync capabilities.",
+		"bestFor": [
+			"Privacy-focused apps with user-controlled storage",
+			"Personal data management tools with offline support"
+		],
+		"id": "remotestorage"
+	},
+	{
+		"projectName": "RxDB",
+		"projectMaintainer": "Daniel Meyer",
+		"link": "https://rxdb.info",
+		"icon": "https://rxdb.info/files/logo/logo.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"storing-data",
+			"managing-reactivity",
+			"managing-data-flow"
+		],
+		"description": "RxDB is a real-time database that leverages RxJS for reactive programming, offering offline-first capabilities, live data streams, and seamless synchronization.",
+		"bestFor": [
+			"Building reactive web and mobile applications",
+			"Real-time apps with offline-first functionality"
+		],
+		"id": "rxdb"
+	},
+	{
+		"projectName": "SignalDB",
+		"projectMaintainer": "Max Nowack",
+		"link": "https://signaldb.js.org",
+		"icon": "https://signaldb.js.org/logo.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-conflicts",
+			"storing-data",
+			"managing-data-flow",
+			"managing-reactivity"
+		],
+		"description": "SignalDB is a real-time, offline-first database that provides automatic conflict resolution, seamless synchronization, and reactive data management for collaborative applications.",
+		"bestFor": [
+			"Collaborative task management tools",
+			"Real-time chat applications with offline support"
+		],
+		"id": "signaldb"
+	},
+	{
+		"projectName": "Socket Runtime",
+		"projectMaintainer": "Socket Runtime Team",
+		"link": "https://github.com/socketsupply/socket",
+		"icon": "https://socketsupply.co/images/monogram.svg",
+		"painPoints": [
+			"storing-data",
+			"keeping-in-sync",
+			"managing-data-flow",
+			"connectivity-awareness"
+		],
+		"description": "Socket Runtime provides a framework for building local-first, offline-capable applications with seamless data synchronization and native-like performance.",
+		"bestFor": [
+			"Building cross-platform, offline-first applications",
+			"Apps requiring local-first architecture with native performance"
+		],
+		"id": "socket-runtime"
+	},
+	{
+		"projectName": "SyncedStore",
+		"projectMaintainer": "Yousef El-Dardiry",
+		"link": "https://syncedstore.org",
+		"icon": "https://github.githubassets.com/favicons/favicon-dark.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-reactivity",
+			"managing-conflicts"
+		],
+		"description": "SyncedStore is a simple and efficient library for building collaborative applications. It leverages CRDTs to enable real-time synchronization and conflict resolution across clients.",
+		"bestFor": [
+			"Collaborative apps with real-time state synchronization",
+			"Multi-user tools requiring seamless conflict resolution"
+		],
+		"id": "syncedstore"
+	},
+	{
+		"projectName": "TinyBase",
+		"projectMaintainer": "James Pearce",
+		"link": "https://tinybase.org",
+		"icon": "https://tinybase.org/favicon.svg",
+		"painPoints": [
+			"storing-data",
+			"managing-reactivity",
+			"managing-data-flow"
+		],
+		"description": "TinyBase is a local-first, reactive data store designed for building high-performance applications. It emphasizes simplicity, reactivity, and modularity in state management.",
+		"bestFor": [
+			"Building reactive web applications",
+			"Offline-first apps with complex state requirements"
+		],
+		"id": "tinybase"
+	},
+	{
+		"projectName": "Triplit",
+		"projectMaintainer": "Aspen Cloud",
+		"link": "https://triplit.dev",
+		"icon": "https://triplit.dev/favicon.ico",
+		"painPoints": [
+			"storing-data",
+			"keeping-in-sync",
+			"managing-data-flow",
+			"managing-reactivity"
+		],
+		"description": "Triplit is a local-first data synchronization platform designed for collaborative applications. It enables seamless state management and data sharing across devices and users.",
+		"bestFor": [
+			"Collaborative apps with offline-first capabilities",
+			"Real-time data-sharing tools"
+		],
+		"id": "triplit"
+	},
+	{
+		"projectName": "Verdant",
+		"projectMaintainer": "Grant Forrest",
+		"link": "https://verdant.dev",
+		"icon": "https://verdant.dev/favicon-32x32.png",
+		"painPoints": [
+			"storing-data",
+			"keeping-in-sync",
+			"managing-data-flow",
+			"managing-reactivity"
+		],
+		"description": "Verdant is a local-first framework that focuses on enabling reactive and synchronized state management for modern, offline-capable applications.",
+		"bestFor": [
+			"Building offline-first, reactive web applications",
+			"Collaborative tools requiring real-time data sync"
+		],
+		"id": "verdant"
+	},
+	{
+		"projectName": "VLCN",
+		"projectMaintainer": "Matt Wonlaw",
+		"link": "https://vlcn.io",
+		"icon": "https://vlcn.io/assets/isometrics/box-only-trimmed.png",
+		"painPoints": [
+			"storing-data",
+			"keeping-in-sync",
+			"managing-conflicts",
+			"managing-data-flow"
+		],
+		"description": "VLCN is a high-performance, local-first database designed for offline-first and collaborative applications. It emphasizes speed, scalability, and seamless data synchronization.",
+		"bestFor": [
+			"Real-time collaborative applications",
+			"High-performance offline-first apps"
+		],
+		"id": "vlcn"
+	},
+	{
+		"projectName": "WatermelonDB",
+		"projectMaintainer": "Radek Pietruszewski / Nozbe",
+		"link": "https://watermelondb.dev",
+		"icon": "https://raw.githubusercontent.com/Nozbe/WatermelonDB/master/assets/icon128x128.png",
+		"painPoints": [],
+		"description": "",
+		"bestFor": [],
+		"id": "watermelondb"
+	},
+	{
+		"projectName": "Trystero",
+		"projectMaintainer": "Dan Motzenbecker / Dmotz",
+		"link": "https://github.com/dmotz/trystero",
+		"icon": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Font_Awesome_5_solid_handshake.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-data-flow",
+			"connectivity-awareness"
+		],
+		"description": "Trystero is a peer-to-peer WebRTC library designed for creating decentralized, real-time communication and data-sharing applications without relying on a central server.",
+		"bestFor": [
+			"Peer-to-peer communication tools",
+			"Decentralized real-time data sharing apps"
+		],
+		"id": "trystero"
+	},
+	{
+		"projectName": "Amplify DataStore",
+		"projectMaintainer": "Amazon Web Services",
+		"link": "https://docs.amplify.aws/lib/datastore/getting-started/q/platform/js/",
+		"icon": "https://d0.awsstatic.com/logos/powered-by-aws-white.png",
+		"painPoints": [
+			"storing-data",
+			"keeping-in-sync",
+			"managing-data-flow",
+			"connectivity-awareness"
+		],
+		"description": "Amplify DataStore is a library by AWS that provides offline-first capabilities, seamless data synchronization, and integration with cloud backends, simplifying development for distributed applications.",
+		"bestFor": [
+			"Offline-first mobile and web applications",
+			"Cloud-connected apps with reliable offline support"
+		],
+		"id": "amplify-datastore"
+	},
+	{
+		"projectName": "Automerge",
+		"projectMaintainer": "Ink & Switch and contributors",
+		"link": "https://automerge.org",
+		"icon": "https://automerge.org/img/favicon.ico",
+		"painPoints": [
+			"Keeping in Sync",
+			"Managing Conflicts",
+			"Managing Data Flow"
+		],
+		"description": "A CRDT library that allows concurrent editing of JSON-like data structures with automatic conflict resolution.",
+		"bestFor": [
+			"keeping-in-sync",
+			"managing-conflicts",
+			"managing-data-flow"
+		],
+		"id": "automerge"
+	},
+	{
+		"projectName": "Collabs",
+		"projectMaintainer": "Composable Systems Lab @ CMU",
+		"link": "https://collabs.readthedocs.io/en/latest/",
+		"icon": "https://collabs.readthedocs.io/en/latest/_static/favicon.ico",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-conflicts",
+			"managing-data-flow",
+			"managing-reactivity"
+		],
+		"description": "Collabs is a library for building real-time collaborative applications with a focus on conflict-free replicated data types (CRDTs) and seamless state synchronization across multiple clients.",
+		"bestFor": [
+			"Collaborative applications requiring CRDTs",
+			"Multi-user real-time editing tools"
+		],
+		"id": "collabs"
+	},
+	{
+		"projectName": "Dexie Cloud",
+		"projectMaintainer": "Awarica AB",
+		"link": "https://dexie.org/cloud/",
+		"icon": "https://dexie.org/assets/images/dexie-icon-64x64.png",
+		"painPoints": [
+			"keeping-in-sync",
+			"storing-data",
+			"managing-data-flow",
+			"managing-reactivity"
+		],
+		"description": "Dexie Cloud extends Dexie.js to provide a cloud-based synchronization layer, enabling offline-first applications with seamless sync capabilities and robust local storage management.",
+		"bestFor": [
+			"Offline-first applications requiring cloud synchronization",
+			"Web apps with large-scale local storage and real-time sync needs"
+		],
+		"id": "dexie-cloud"
+	},
+	{
+		"projectName": "Ditto",
+		"projectMaintainer": "Ditto Live, Inc",
+		"link": "https://ditto.live",
+		"icon": "https://pbs.twimg.com/profile_images/1627424762686476288/aD-H-f2__400x400.jpg",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-conflicts",
+			"storing-data",
+			"managing-data-flow",
+			"connectivity-awareness"
+		],
+		"description": "Ditto is a peer-to-peer database platform designed for building offline-first and real-time collaborative applications. It enables seamless data synchronization across devices without requiring a central server.",
+		"bestFor": [
+			"Offline-first mobile and web applications",
+			"Peer-to-peer collaborative tools with real-time updates"
+		],
+		"id": "ditto"
+	},
+	{
+		"projectName": "hocuspocus",
+		"projectMaintainer": "ueberdosis",
+		"link": "https://tiptap.dev/hocuspocus/",
+		"icon": "https://yjs.dev/images/logo/yjs.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-conflicts",
+			"managing-data-flow"
+		],
+		"description": "Hocuspocus is a backend for Yjs, enabling real-time collaboration and conflict-free synchronization for distributed applications. It provides a seamless way to manage collaborative state in complex scenarios.",
+		"bestFor": [
+			"Collaborative editing tools with real-time updates",
+			"Integrating real-time features into existing apps"
+		],
+		"id": "hocuspocus"
+	},
+	{
+		"projectName": "Jamsocket",
+		"projectMaintainer": "Jamsocket team",
+		"link": "https://jamsocket.com/",
+		"icon": "https://jamsocket.com/favicon.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-reactivity",
+			"managing-data-flow"
+		],
+		"description": "Jamsocket is a platform for building low-latency, real-time collaborative applications with seamless state synchronization and live updates.",
+		"bestFor": [
+			"Building multiplayer real-time applications",
+			"Collaborative tools requiring instant synchronization"
+		],
+		"id": "jamsocket"
+	},
+	{
+		"projectName": "Liveblocks Storage",
+		"projectMaintainer": "Liveblocks team",
+		"link": "https://liveblocks.io/realtime-apis/storage",
+		"icon": "https://liveblocks.io/favicon.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"storing-data",
+			"managing-reactivity",
+			"managing-data-flow"
+		],
+		"description": "Liveblocks Storage provides a real-time backend solution for collaborative applications, enabling seamless state synchronization, storage, and reactivity across multiple users and devices.",
+		"bestFor": [
+			"Real-time collaborative applications",
+			"Shared storage for live editing tools"
+		],
+		"id": "liveblocks-storage"
+	},
+	{
+		"projectName": "Logux",
+		"projectMaintainer": "Andrey Sitnik",
+		"link": "https://logux.org",
+		"icon": "https://logux.org/branding/logo-dark.svg",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-data-flow",
+			"managing-reactivity",
+			"managing-conflicts"
+		],
+		"description": "Logux is a real-time, distributed state synchronization framework that provides efficient and conflict-free updates across clients and servers. It is designed to simplify state management for collaborative applications.",
+		"bestFor": [
+			"Real-time state synchronization in web apps",
+			"Building collaborative tools with distributed state"
+		],
+		"id": "logux"
+	},
+	{
+		"projectName": "Loro",
+		"projectMaintainer": "Loro",
+		"link": "https://loro.dev/",
+		"icon": "https://loro.dev/favicon.ico",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-reactivity",
+			"managing-data-flow"
+		],
+		"description": "Loro is a platform for building collaborative and real-time applications with a focus on simplicity and reactivity. It enables seamless data synchronization and dynamic updates across devices.",
+		"bestFor": [
+			"Collaborative tools for small teams",
+			"Real-time applications with live updates"
+		],
+		"id": "loro"
+	},
+	{
+		"projectName": "PowerSync",
+		"projectMaintainer": "JourneyApps",
+		"link": "https://www.powersync.com",
+		"icon": "https://journeyapps.com/assets/images/powersync-logo-icon.png",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-data-flow",
+			"storing-data"
+		],
+		"description": "PowerSync enables real-time data synchronization for applications with offline capabilities, ensuring consistent and reliable data management across devices and environments.",
+		"bestFor": [
+			"Enterprise applications needing offline-first capabilities",
+			"Data-intensive apps with real-time synchronization needs"
+		],
+		"id": "powersync"
+	},
+	{
+		"projectName": "Replicache",
+		"projectMaintainer": "Rocicorp",
+		"link": "https://replicache.dev",
+		"icon": "https://replicache.dev/icons/favicon-32x32.png",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-conflicts",
+			"storing-data",
+			"managing-data-flow"
+		],
+		"description": "Replicache is a JavaScript library that enables local-first, offline-capable applications with real-time sync and conflict resolution, designed to make web apps faster and more resilient.",
+		"bestFor": [
+			"Offline-first applications with real-time updates",
+			"E-commerce or collaborative tools needing fast, resilient syncing"
+		],
+		"id": "replicache"
+	},
+	{
+		"projectName": "Sockethub",
+		"projectMaintainer": "Nick Jennings",
+		"link": "http://sockethub.org",
+		"icon": "http://sockethub.org/favicon.ico",
+		"painPoints": [
+			"managing-data-flow",
+			"keeping-in-sync",
+			"managing-reactivity"
+		],
+		"description": "Sockethub is a federated messaging and data distribution server designed to simplify integration across various platforms, enabling real-time communication and data flow.",
+		"bestFor": [
+			"Federated messaging apps",
+			"Cross-platform data integration tools"
+		],
+		"id": "sockethub"
+	},
+	{
+		"projectName": "Yjs",
+		"projectMaintainer": "Kevin Jahns & contributors",
+		"link": "https://yjs.dev",
+		"icon": "https://yjs.dev/images/logo/yjs.svg",
+		"painPoints": [
+			"Keeping in Sync",
+			"Managing Conflicts",
+			"Managing Data Flow"
+		],
+		"description": "A CRDT framework that enables real-time collaboration with automatic conflict resolution and seamless synchronization across multiple clients.",
+		"bestFor": [
+			"keeping-in-sync",
+			"managing-conflicts",
+			"managing-data-flow"
+		],
+		"id": "yjs"
+	},
+	{
+		"projectName": "Y-Sweet",
+		"projectMaintainer": "Jamsocket team",
+		"link": "https://jamsocket.com/y-sweet",
+		"icon": "https://demos.y-sweet.dev/icon.png",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-conflicts",
+			"managing-reactivity"
+		],
+		"description": "Y-Sweet is built on top of Yjs to simplify the development of real-time collaborative applications, providing high-level abstractions for conflict resolution and synchronization.",
+		"bestFor": [
+			"Building collaborative text editors",
+			"Real-time multiplayer apps with minimal setup"
+		],
+		"id": "y-sweet"
+	},
+	{
+		"projectName": "Legend State",
+		"projectMaintainer": "Jay Meistrich",
+		"link": "https://github.com/LegendApp/legend-state",
+		"icon": "https://avatars.githubusercontent.com/u/60373862?s=192&v=4",
+		"painPoints": [
+			"managing-reactivity",
+			"storing-data",
+			"managing-data-flow"
+		],
+		"description": "Legend State is a lightweight, reactive state management library that simplifies data management for modern JavaScript applications. It focuses on performance, flexibility, and reactivity.",
+		"bestFor": [
+			"Real-time UI updates in reactive web apps",
+			"Managing application state for single-page applications"
+		],
+		"id": "legend-state"
+	}
+]
