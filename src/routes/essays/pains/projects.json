@@ -689,5 +689,23 @@
 			"Managing application state for single-page applications"
 		],
 		"id": "legend-state"
-	}
+	},
+	{
+  "projectName": "Jazz Tools",
+  "projectMaintainer": "Jazz Tools Team",
+  "link": "https://jazz.tools/",
+  "icon": "https://jazz.tools/favicon.ico",
+  "painPoints": [
+    "storing-data",
+    "keeping-in-sync",
+    "managing-data-flow",
+    "managing-reactivity"
+  ],
+  "description": "Jazz Tools is a platform for building collaborative, local-first applications with seamless state management and synchronization. It simplifies the process of creating reactive, offline-capable apps.",
+  "bestFor": [
+    "Collaborative editing tools",
+    "Offline-first applications with real-time updates"
+  ],
+  "id": "jazz-tools"
+}
 ]
