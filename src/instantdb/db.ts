@@ -8,10 +8,6 @@ export type Todo = {
 	updatedAt?: string;
 };
 
-type Schema = {
-	todos: Todo;
-};
-
 export const db = init({ appId: '4c94c37c-e7ae-4a45-8d33-9f6cccf3b943' });
 
 export { tx, id };

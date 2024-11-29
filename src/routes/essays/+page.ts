@@ -23,7 +23,10 @@ async function getEssays() {
 		if (file && typeof file === 'object' && 'metadata' in file && slug) {
 			const metadata = file.metadata as Essay;
 			const post = { ...metadata, generatedSlug: slug } satisfies Essay;
-			post.published && essays.push(post);
+
+			if (post.published) {
+				essays.push(post);
+			}
 		}
 	}
 
