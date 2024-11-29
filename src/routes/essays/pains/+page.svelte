@@ -49,7 +49,7 @@
 		projectMaintainer: string;
 	}
 
-	const projects: Project[] = projectsData;
+	const projects: Project[] = projectsData.sort((a, b) => a.projectName.localeCompare(b.projectName));
 
 	// State for selected pain points
 	const selectedPainPoints = writable<string[]>([]);
