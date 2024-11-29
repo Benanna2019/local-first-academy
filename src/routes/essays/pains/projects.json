@@ -134,8 +134,7 @@
 			"storing-data",
 			"keeping-in-sync",
 			"managing-conflicts",
-			"managing-data-flow",
-			"connectivity-awareness"
+			"managing-data-flow"
 		],
 		"description": "Gun is a decentralized, graph-based database designed for real-time, offline-first applications. It provides automatic conflict resolution, fast synchronization, and supports peer-to-peer connections for distributed systems.",
 		"bestFor": [
@@ -210,8 +209,7 @@
 			"storing-data",
 			"keeping-in-sync",
 			"managing-conflicts",
-			"managing-data-flow",
-			"connectivity-awareness"
+			"managing-data-flow"
 		],
 		"description": "PouchDB is an open-source, local-first JavaScript database designed to work offline and sync seamlessly with CouchDB or compatible servers. It simplifies building resilient, offline-capable applications.",
 		"bestFor": [
@@ -228,8 +226,7 @@
 		"painPoints": [
 			"storing-data",
 			"keeping-in-sync",
-			"managing-data-flow",
-			"connectivity-awareness"
+			"managing-data-flow"
 		],
 		"description": "remoteStorage is an open protocol and library that enables users to store and manage their data on their own servers, while providing apps with offline and sync capabilities.",
 		"bestFor": [
@@ -283,8 +280,7 @@
 		"painPoints": [
 			"storing-data",
 			"keeping-in-sync",
-			"managing-data-flow",
-			"connectivity-awareness"
+			"managing-data-flow"
 		],
 		"description": "Socket Runtime provides a framework for building local-first, offline-capable applications with seamless data synchronization and native-like performance.",
 		"bestFor": [
@@ -386,9 +382,16 @@
 		"projectMaintainer": "Radek Pietruszewski / Nozbe",
 		"link": "https://watermelondb.dev",
 		"icon": "https://raw.githubusercontent.com/Nozbe/WatermelonDB/master/assets/icon128x128.png",
-		"painPoints": [],
-		"description": "",
-		"bestFor": [],
+		"painPoints": [
+			"storing-data",
+			"keeping-in-sync",
+			"managing-data-flow"
+		],
+		"description": "WatermelonDB is a high-performance local-first database optimized for React and React Native applications, designed to handle complex queries and offline-first use cases.",
+		"bestFor": [
+			"Offline-first React Native applications",
+			"Apps with complex local data requirements"
+		],
 		"id": "watermelondb"
 	},
 	{
@@ -398,8 +401,7 @@
 		"icon": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Font_Awesome_5_solid_handshake.svg",
 		"painPoints": [
 			"keeping-in-sync",
-			"managing-data-flow",
-			"connectivity-awareness"
+			"managing-data-flow"
 		],
 		"description": "Trystero is a peer-to-peer WebRTC library designed for creating decentralized, real-time communication and data-sharing applications without relying on a central server.",
 		"bestFor": [
@@ -416,8 +418,7 @@
 		"painPoints": [
 			"storing-data",
 			"keeping-in-sync",
-			"managing-data-flow",
-			"connectivity-awareness"
+			"managing-data-flow"
 		],
 		"description": "Amplify DataStore is a library by AWS that provides offline-first capabilities, seamless data synchronization, and integration with cloud backends, simplifying development for distributed applications.",
 		"bestFor": [
@@ -432,15 +433,14 @@
 		"link": "https://automerge.org",
 		"icon": "https://automerge.org/img/favicon.ico",
 		"painPoints": [
-			"Keeping in Sync",
-			"Managing Conflicts",
-			"Managing Data Flow"
-		],
-		"description": "A CRDT library that allows concurrent editing of JSON-like data structures with automatic conflict resolution.",
-		"bestFor": [
 			"keeping-in-sync",
 			"managing-conflicts",
 			"managing-data-flow"
+		],
+		"description": "Automerge is a CRDT library that enables concurrent editing of JSON-like data structures with automatic conflict resolution, making it ideal for building collaborative and offline-capable applications.",
+		"bestFor": [
+			"Collaborative tools with concurrent editing",
+			"Offline-first applications requiring conflict-free data sync"
 		],
 		"id": "automerge"
 	},
@@ -489,8 +489,7 @@
 			"keeping-in-sync",
 			"managing-conflicts",
 			"storing-data",
-			"managing-data-flow",
-			"connectivity-awareness"
+			"managing-data-flow"
 		],
 		"description": "Ditto is a peer-to-peer database platform designed for building offline-first and real-time collaborative applications. It enables seamless data synchronization across devices without requiring a central server.",
 		"bestFor": [
@@ -644,15 +643,14 @@
 		"link": "https://yjs.dev",
 		"icon": "https://yjs.dev/images/logo/yjs.svg",
 		"painPoints": [
-			"Keeping in Sync",
-			"Managing Conflicts",
-			"Managing Data Flow"
-		],
-		"description": "A CRDT framework that enables real-time collaboration with automatic conflict resolution and seamless synchronization across multiple clients.",
-		"bestFor": [
 			"keeping-in-sync",
 			"managing-conflicts",
 			"managing-data-flow"
+		],
+		"description": "Yjs is a CRDT framework that enables real-time collaboration with automatic conflict resolution and seamless synchronization across multiple clients.",
+		"bestFor": [
+			"Real-time collaborative applications",
+			"Multi-user editing tools with conflict resolution"
 		],
 		"id": "yjs"
 	},
@@ -691,21 +689,21 @@
 		"id": "legend-state"
 	},
 	{
-  "projectName": "Jazz Tools",
-  "projectMaintainer": "Jazz Tools Team",
-  "link": "https://jazz.tools/",
-  "icon": "https://jazz.tools/favicon.ico",
-  "painPoints": [
-    "storing-data",
-    "keeping-in-sync",
-    "managing-data-flow",
-    "managing-reactivity"
-  ],
-  "description": "Jazz Tools is a platform for building collaborative, local-first applications with seamless state management and synchronization. It simplifies the process of creating reactive, offline-capable apps.",
-  "bestFor": [
-    "Collaborative editing tools",
-    "Offline-first applications with real-time updates"
-  ],
-  "id": "jazz-tools"
-}
+		"projectName": "Jazz Tools",
+		"projectMaintainer": "Jazz Tools Team",
+		"link": "https://jazz.tools/",
+		"icon": "https://jazz.tools/favicon.ico",
+		"painPoints": [
+			"storing-data",
+			"keeping-in-sync",
+			"managing-data-flow",
+			"managing-reactivity"
+		],
+		"description": "Jazz Tools is a platform for building collaborative, local-first applications with seamless state management and synchronization. It simplifies the process of creating reactive, offline-capable apps.",
+		"bestFor": [
+			"Collaborative editing tools",
+			"Offline-first applications with real-time updates"
+		],
+		"id": "jazz-tools"
+	}
 ]
