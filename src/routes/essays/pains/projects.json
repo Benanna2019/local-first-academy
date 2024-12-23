@@ -463,6 +463,24 @@
 		"id": "collabs"
 	},
 	{
+		"projectName": "Convex",
+		"projectMaintainer": "Convex Team",
+		"link": "https://convex.dev/",
+		"icon": "https://convex.dev/favicon.ico",
+		"painPoints": [
+			"keeping-in-sync",
+			"managing-reactivity",
+			"storing-data"
+		],
+		"description": "Convex is a backend-as-a-service platform that simplifies real-time application development with built-in support for data synchronization, serverless functions, and reactivity. It eliminates the need for a traditional server by offering a schema-less database and a scalable backend infrastructure.",
+		"bestFor": [
+			"Real-time collaborative applications",
+			"Applications requiring live updates with minimal backend setup",
+			"Prototyping real-time apps quickly"
+		],
+		"id": "convex"
+	},
+	{
 		"projectName": "Dexie Cloud",
 		"projectMaintainer": "Awarica AB",
 		"link": "https://dexie.org/cloud/",
