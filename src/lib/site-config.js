@@ -2,7 +2,7 @@ export const SITE_URL = 'https://localfirstacademy.com';
 export const GH_USER_REPO = 'Benanna2019/lofi-academy'; // used for pulling github issues and offering comments
 export const SITE_TITLE = 'Local First Academy';
 export const SITE_DESCRIPTION = 'Learn to build Local First Software';
-export const DEFAULT_OG_IMAGE = 'https://localfirstacademy.com/lofilibrary.png';
+export const DEFAULT_OG_IMAGE = 'https://localfirstacademy.com/LocalFirstAcademyOgImage.png';
 // export const MY_TWITTER_HANDLE = 'swyx';
 // export const MY_YOUTUBE = 'https://youtube.com/swyxTV?sub_confirmation=1';
 
