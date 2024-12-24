@@ -16,6 +16,8 @@ async function getEssays() {
 
 	const paths = import.meta.glob('/src/lib/content/essays/*.{svx,md}', { eager: true });
 
+	console.log('paths', paths);
+
 	for (const path in paths) {
 		const file = paths[path];
 		const slug = path.split('/').at(-1)?.replace('.svx', '');

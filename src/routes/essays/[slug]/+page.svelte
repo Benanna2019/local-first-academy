@@ -41,7 +41,7 @@
 				/>
 			</div> -->
 		</div>
-		<header>
+		<header style="text-wrap: balance;">
 			<BlurFade delay={0.7} class="flex flex-col gap-6 sm:gap-10">
 				<h1
 					class="mx-auto max-w-5xl text-center text-7xl font-[800] text-white sm:text-[80px] [@media(max-width:500px)]:text-5xl"

@@ -112,7 +112,11 @@
 }
 
 .prose blockquote {
-	@apply border-l-2 border-gray-50 font-normal;
+	@apply mt-4 flex items-center border-l-2 border-gray-50 px-4 pt-0 align-middle font-normal;
+}
+
+.prose blockquote p {
+	@apply pt-0;
 }
 
 .prose figure {
@@ -302,4 +306,16 @@
 	top: 0px;
 	position: relative;
 	scroll-margin-top: 4rem;
+}
+
+.prose ul {
+	@apply my-4 ml-6 list-outside list-disc space-y-2;
+}
+
+.prose ol {
+	@apply my-4 ml-6 list-outside list-decimal space-y-2;
+}
+
+.prose li {
+	@apply pl-2;
 }
