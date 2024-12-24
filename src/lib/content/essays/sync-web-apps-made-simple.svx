@@ -1,8 +1,8 @@
 ---
 title: "Sync Web Apps Made Simple"
 slug: sync-web-apps-made-simple
-published: "2024-12-24"
-updated: "2024-12-24"
+published: "2024-12-26"
+updated: "2024-12-26"
 categories:
   - "local first"
   - "development"
