@@ -36,7 +36,39 @@ overview and somewhat of the historical path we have been on to get to where we 
 
 The MVC (Model-View-Controller) pattern has been a cornerstone of web development for decades. Here's how a typical implementation looks:
 
-![MVC Implementation](/content-images/essays/typical-crud-images/crud-mvc.png)
+```javascript
+// controllers/todoController.js
+const Todo = require('../models/todo')
+const todoController = {
+    async index(req, res) {
+        try {
+            const todos = await Todo.find({})
+            res.render('todos/index', { todos })
+        } catch (error) {
+            res.status(500).render('error', { error: 'Failed to fetch todos' })
+        }
+    }
+}
+module.exports = todoController
+
+// views/todos/index.ejs
+<!-- views/todos/index.ejs -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todos</title>
+    </head>
+    <body>
+        <h1>Todos</h1>
+        <ul>
+            <% todos.forEach(function(todo) { %>
+            <li><%= todo.title %></li>
+            <% }); %>
+        </ul>
+    </body>
+</html>
+
+```
 
 This approach is simple and effective, but lacks interactivity without additional JavaScript.
 
@@ -66,7 +98,41 @@ especially around interactivity, no full page reloads (DOM diffing), and better 
 
 **Client Side:** Manages state, API calls, loading states, error handling
 
-![useEffect Implementation](/content-images/essays/typical-crud-images/crud-useEffect.png)
+```javascript
+// Client Implementation
+const [data, setData] = useState(null)
+const [loading, setLoading] = useState(true)
+const [error, setError] = useState(null)
+
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch('/api/todos')
+      const todos = await response.json()
+      setData(todos)
+    } catch (error) {
+      setError(error)
+    } finally {
+      setLoading(false)
+    }
+  }
+  fetchData()
+}, [])
+```
+
+**Server Side:** REST/GraphQL endpoints with error handling
+
+```javascript
+// Server Implementation (Express)
+app.get('/api/todos', async (req, res) => {
+  try {
+    const todos = await prisma.todos.findMany()
+    res.json(todos)
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch todos' })
+  }
+})
+```
 
 `useEffect` was the go-to solution for data fetching in many react apps but runs into these common problems:
 
@@ -87,7 +153,35 @@ especially around interactivity, no full page reloads (DOM diffing), and better 
 
 **Client Side:** Declarative queries with automatic caching and background updates
 
-![Tanstack Query Implementation](/content-images/essays/typical-crud-images/crud-tanstack-query.png)
+```javascript
+// Client Implementation
+const { data, isLoading, error } = useQuery({
+  queryKey: ['todos'],
+  queryFn: async () => {
+    const response = await fetch('/api/todos')
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+    return response.json()
+  },
+  staleTime: 5000,
+  cacheTime: 300000
+})
+```
+
+**Server Side:** Enhanced API endpoints with cache control
+
+```javascript
+// Server Implementation (Express)
+app.get('/api/todos', async (req, res) => {
+  try {
+    const todos = await prisma.todos.findMany()
+    res.json(todos)
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch todos' })
+  }
+})
+```
 
 Tanstack Query addresses the common useEffect problems by providing:
 - Automatic background updates
@@ -104,7 +198,42 @@ Tanstack Query addresses the common useEffect problems by providing:
 
 **Client Side:** Minimal client JavaScript with streaming updates
 
-![Server Component Implementation](/content-images/essays/typical-crud-images/crud-server-components.png)
+```javascript
+// Client Implementation (React Sever Component)
+async function TodoList() {
+  const todos = await db.todos.findMany()
+  // or a fetch call to a api endpoint in the example below
+  return (
+    <Suspense fallback={<Loading />}>
+      <ul>
+        {todos.map(todo => <Todo key={todo.id} {...todo} />)}
+      </ul>
+    </Suspense>
+  )
+}
+```
+
+**Server Side:** Api endpoint you could fetch from a server component
+
+```javascript
+// Server Implementation (Next.js)
+export async function GET(request: Request) {
+  try {
+    const todos = await prisma.todos.findMany()
+    return new Response(
+      JSON.stringify(todos),
+      {
+        headers: { 'content-type': 'application/json' },
+      }
+    )
+  } catch (error) {
+    return new Response(
+      JSON.stringify({ error: 'Failed to fetch todos' }),
+      { status: 500 }
+    )
+  }
+}
+```
 
 React Server Components solve several key pain points:
 - Eliminate client-server waterfalls
@@ -123,7 +252,48 @@ React Server Components solve several key pain points:
 
 **Client Side:** Real-time data with automatic updates
 
-![Convex Implementation](/content-images/essays/typical-crud-images/convex.png)
+```javascript
+// Client Implementation
+const todos = convexQuery(api.todos.list)
+// const addTodo = useMutation(api.todos.add)
+
+function TodoList() {
+  if (!todos) return <div>Loading...</div>
+  return (
+    <ul>
+      {todos.map(todo => (
+        <li key={todo._id}>{todo.title}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+**Query / Mutation Definitions:** With Frameworks using Convex there isn't a real need for a server side implementation.
+
+```javascript
+// Server Implementation (Convex)
+export const todosList = query({
+	args: {},
+	handler: async (ctx) => {
+    return await ctx.db.query("todos").collect();
+  }
+});
+
+export const addTodo = mutation({
+  // check users identity if needed
+  args: {
+	  title: v.string()
+  },
+  handler: async (ctx, args) => {
+	  return await ctx.db.insert("todos", {
+	    title: args.title,
+	    completed: false,
+	    // userId: identity.subject,
+	  });
+  }
+});
+```
 
 - Real-time updates without polling
 - Reduced server load compared to polling
@@ -140,7 +310,24 @@ React Server Components solve several key pain points:
 
 **Client Side:** Local database operations with automatic sync
 
-![Local First Implementation](/content-images/essays/typical-crud-images/local-first.png)
+```javascript
+// Client Implementation
+const todos = useQuery(db.todos.list())
+const addTodo = useMutation(db.todos.add)
+
+function TodoList() {
+  return (
+    <div>
+      <button onClick={() => addTodo({ title: "New Todo" })}>
+        Add Todo
+      </button>
+      {todos.map(todo => (
+        <div key={todo.id}>{todo.title}</div>
+      ))}
+    </div>
+  )
+}
+```
 
 Pros:
 - Works offline
