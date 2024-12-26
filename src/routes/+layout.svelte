@@ -3,10 +3,6 @@
 	import Header from '@/lib/components/header.svelte';
 	import Footer from '@/lib/components/footer.svelte';
 	import { SITE_TITLE, SITE_DESCRIPTION, DEFAULT_OG_IMAGE, SITE_URL } from '@/lib/site-config';
-	onMount(async () => {
-		// @ts-ignore
-		await import('@/lib/components/snow-fall.js');
-	});
 
 	import '../app.css';
 	let { children } = $props();

@@ -23,6 +23,7 @@
 
 <a
 	class="reveal animate-revealContent group relative flex flex-col overflow-hidden rounded-md bg-neutral-900 transition-colors duration-300 ease-out hover:cursor-pointer sm:hover:bg-neutral-800"
+	rel="prefetch"
 	href={`/essays/${generatedSlug}`}
 	style="animation-duration: 2s; animation-delay: 1s;"
 >

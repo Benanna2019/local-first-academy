@@ -1,0 +1,170 @@
+---
+title: "Typical CRUD Apps vs Local First"
+slug: typical-crud-apps-vs-local-first
+published: "2024-12-27"
+updated: "2024-12-27"
+categories:
+  - "crud"
+  - "local first"
+  - "development"
+  - "sync"
+  - "web applications"
+coverImage: "/content-images/essays/typical-crud-apps-vs-local-first.png"
+coverWidth: 16
+coverHeight: 9
+excerpt: Typical CRUD apps vs Local First
+---
+
+We have a lot of code snippets today as we look at a general landscape of how CRUD based apps are built vs how 
+Local First apps are built. 
+
+## Recap of CRUD Apps
+
+The following examples will show us how we got to where we are with current data fetching implementations. 
+An interesting pattern we will see is how all of these patterns serve to make apps feel better
+by making the network feel less like a bottleneck. 
+
+Note: We are primarily focused on how Local First development helps solve some traditional
+bottlenecks and performance issues with the ways outlined below. That being said, we fully 
+believe that the below ways, outside of useEffects 🫣, are perfectly viable ways to build
+web applications.
+
+Lastly, the examples are meant to be brief. More could be added but this is to give the general
+overview and somewhat of the historical path we have been on to get to where we are.
+
+### Traditional Server-Side Rendering (MVC Pattern)
+
+The MVC (Model-View-Controller) pattern has been a cornerstone of web development for decades. Here's how a typical implementation looks:
+
+![MVC Implementation](/content-images/essays/typical-crud-images/crud-mvc.png)
+
+This approach is simple and effective, but lacks interactivity without additional JavaScript.
+
+Pros:
+- Nice separation of concerns
+- Great for SEO out of the box
+- Fast initial page load
+- Works without JavaScript
+- Lower client-side complexity
+
+Cons:
+- Limited interactivity
+- Full page reloads required
+- Poor user experience for dynamic content
+- Higher server load
+- Slower subsequent interactions
+- Network latency for basic operations
+
+Note: With hypermedia like HTMX, Datastar, or Unpoly, you get a lot of the benefits of frameworks below
+especially around interactivity, no full page reloads (DOM diffing), and better dynamic content.
+
+### Client-Side Data Fetching Evolution
+
+#### 1. useEffect Pattern and Problems
+
+**Overview:** Basic React pattern using useEffect for data fetching
+
+**Client Side:** Manages state, API calls, loading states, error handling
+
+![useEffect Implementation](/content-images/essays/typical-crud-images/crud-useEffect.png)
+
+`useEffect` was the go-to solution for data fetching in many react apps but runs into these common problems:
+
+- Race conditions with multiple requests
+- Complex/Remember cleanup logic
+- Difficult error boundaries
+- No built-in caching
+- Waterfall requests
+- Dependency array confusion. Most reach for it for the wrong reasons.
+- You can do optimistic updates, ie update data without waiting for the network, but also have to handle fallbacks.
+
+
+### Modern Solutions to Data Fetching Challenges
+
+#### 2. Tanstack Query Pattern
+
+**Overview:** Advanced data fetching with built-in caching and background updates
+
+**Client Side:** Declarative queries with automatic caching and background updates
+
+![Tanstack Query Implementation](/content-images/essays/typical-crud-images/crud-tanstack-query.png)
+
+Tanstack Query addresses the common useEffect problems by providing:
+- Automatic background updates
+- Built-in caching and invalidation
+- Request deduplication
+- Error handling and retries
+- Optimistic updates
+- You can do optimistic updates, ie update data without waiting for the network, but also have to handle fallbacks.
+
+
+#### 3. Server Components Pattern
+
+**Overview:** Next.js/React Server Components approach with server-side rendering
+
+**Client Side:** Minimal client JavaScript with streaming updates
+
+![Server Component Implementation](/content-images/essays/typical-crud-images/crud-server-components.png)
+
+React Server Components solve several key pain points:
+- Eliminate client-server waterfalls
+- Reduce bundle size
+- Improve initial page load
+- Better SEO
+- Simplified data access
+- The Server Component pattern is a more difficult implementation to get right.
+- Must understand client/server boundaries and component composition.
+- You can do optimistic updates, ie update data without waiting for the network, but also have to handle fallbacks.
+
+
+### 4. Socket Based Pattern (Convex)
+
+**Overview:** Real-time updates using WebSocket connections
+
+**Client Side:** Real-time data with automatic updates
+
+![Convex Implementation](/content-images/essays/typical-crud-images/convex.png)
+
+- Real-time updates without polling
+- Reduced server load compared to polling
+- Better user experience with instant updates
+- Simplified state management
+- You can do optimistic updates, ie update data without waiting for the network.
+- Since everything is reactive/real-time, if the data doesn't actually get put in the database, the
+  client will fallback to the previous state.
+- Still dependent upon the network
+
+### 5. Local First Pattern
+
+**Overview:** Offline-first architecture with automatic synchronization
+
+**Client Side:** Local database operations with automatic sync
+
+![Local First Implementation](/content-images/essays/typical-crud-images/local-first.png)
+
+Pros:
+- Works offline
+- Instant user feedback
+- Reduced server load
+- Better user experience
+- Not dependent upon the network for operations due to Local Database in the Browser.
+- Since everything is reactive/real-time, if the data doesn't actually get put in the database, the
+  client will fallback to the previous state.
+- Optimistic updates are default and do to syncing, data will automatically fallback
+  if the data doesn't actually get put in the database. 
+  
+
+### Conclusion
+
+All of these patterns have their place in the current web development ecosystem. Local First
+is exciting for many reasons but, in the most ideal sense, it is a combination of all past data fetching
+implementations and solutions. 
+
+Not only do not have to think about the network due to syncing, we get optimistic updates with fallbacks, caching, 
+ability for full offline apps, no spinners i.e. quick apps, and great user experiences as a result.
+
+However, as beautiful as those things are, from an application developer's perspective the ability to
+simply write queries and mutations without having to think for all the separate pieces is a long sought after
+merging of practices and paradigms. 
+
+Tomorrow we will build a simple Local First application and sync with a remote database.
