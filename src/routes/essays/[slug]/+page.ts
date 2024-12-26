@@ -1,10 +1,11 @@
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 
 export const load = async ({ params }) => {
-	console.log(params.slug);
+	if (params.slug === 'sync') {
+		redirect(302, '/essays/sync-web-apps-made-simple');
+	}
 	try {
 		const post = await import(`../../../lib/content/essays/${params.slug}.svx`);
-		console.log(post);
 
 		return {
 			PostContent: post.default,
