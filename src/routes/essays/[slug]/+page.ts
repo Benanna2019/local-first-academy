@@ -5,7 +5,7 @@ export const load = async ({ params }) => {
 		redirect(302, '/essays/sync-web-apps-made-simple');
 	}
 	try {
-		const post = await import(`../../../lib/content/essays/${params.slug}.svx`);
+		const post = await import(`../../../lib/content/essays/${params.slug}.md`);
 
 		return {
 			PostContent: post.default,

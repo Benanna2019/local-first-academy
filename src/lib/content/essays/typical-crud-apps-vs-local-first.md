@@ -32,11 +32,11 @@ web applications.
 Lastly, the examples are meant to be brief. More could be added but this is to give the general
 overview and somewhat of the historical path we have been on to get to where we are.
 
-### Traditional Server-Side Rendering (MVC Pattern)
+### 1. Traditional Server-Side Rendering (MVC Pattern)
 
 The MVC (Model-View-Controller) pattern has been a cornerstone of web development for decades. Here's how a typical implementation looks:
 
-```javascript
+```js
 // controllers/todoController.js
 const Todo = require('../models/todo')
 const todoController = {
@@ -90,15 +90,13 @@ Cons:
 Note: With hypermedia like HTMX, Datastar, or Unpoly, you get a lot of the benefits of frameworks below
 especially around interactivity, no full page reloads (DOM diffing), and better dynamic content.
 
-### Client-Side Data Fetching Evolution
-
-#### 1. useEffect Pattern and Problems
+### 2. useEffect Pattern and Problems
 
 **Overview:** Basic React pattern using useEffect for data fetching
 
 **Client Side:** Manages state, API calls, loading states, error handling
 
-```javascript
+```js
 // Client Implementation
 const [data, setData] = useState(null)
 const [loading, setLoading] = useState(true)
@@ -118,11 +116,11 @@ useEffect(() => {
   }
   fetchData()
 }, [])
-```
+
 
 **Server Side:** REST/GraphQL endpoints with error handling
 
-```javascript
+
 // Server Implementation (Express)
 app.get('/api/todos', async (req, res) => {
   try {
@@ -144,16 +142,13 @@ app.get('/api/todos', async (req, res) => {
 - Dependency array confusion. Most reach for it for the wrong reasons.
 - You can do optimistic updates, ie update data without waiting for the network, but also have to handle fallbacks.
 
-
-### Modern Solutions to Data Fetching Challenges
-
-#### 2. Tanstack Query Pattern
+### 3. Tanstack Query Pattern
 
 **Overview:** Advanced data fetching with built-in caching and background updates
 
 **Client Side:** Declarative queries with automatic caching and background updates
 
-```javascript
+```js
 // Client Implementation
 const { data, isLoading, error } = useQuery({
   queryKey: ['todos'],
@@ -167,11 +162,9 @@ const { data, isLoading, error } = useQuery({
   staleTime: 5000,
   cacheTime: 300000
 })
-```
 
 **Server Side:** Enhanced API endpoints with cache control
 
-```javascript
 // Server Implementation (Express)
 app.get('/api/todos', async (req, res) => {
   try {
@@ -192,13 +185,13 @@ Tanstack Query addresses the common useEffect problems by providing:
 - You can do optimistic updates, ie update data without waiting for the network, but also have to handle fallbacks.
 
 
-#### 3. Server Components Pattern
+### 4. Server Components Pattern
 
 **Overview:** Next.js/React Server Components approach with server-side rendering
 
 **Client Side:** Minimal client JavaScript with streaming updates
 
-```javascript
+```js
 // Client Implementation (React Sever Component)
 async function TodoList() {
   const todos = await db.todos.findMany()
@@ -211,11 +204,9 @@ async function TodoList() {
     </Suspense>
   )
 }
-```
 
 **Server Side:** Api endpoint you could fetch from a server component
 
-```javascript
 // Server Implementation (Next.js)
 export async function GET(request: Request) {
   try {
@@ -246,13 +237,13 @@ React Server Components solve several key pain points:
 - You can do optimistic updates, ie update data without waiting for the network, but also have to handle fallbacks.
 
 
-### 4. Socket Based Pattern (Convex)
+### 5. Socket Based Pattern (Convex)
 
 **Overview:** Real-time updates using WebSocket connections
 
 **Client Side:** Real-time data with automatic updates
 
-```javascript
+```js
 // Client Implementation
 const todos = convexQuery(api.todos.list)
 // const addTodo = useMutation(api.todos.add)
@@ -267,11 +258,9 @@ function TodoList() {
     </ul>
   )
 }
-```
 
-**Query / Mutation Definitions:** With Frameworks using Convex there isn't a real need for a server side implementation.
+**Query / Mutation Definitions:** With Frameworks using Convex there is not a real server side implementation.
 
-```javascript
 // Server Implementation (Convex)
 export const todosList = query({
 	args: {},
@@ -304,13 +293,13 @@ export const addTodo = mutation({
   client will fallback to the previous state.
 - Still dependent upon the network
 
-### 5. Local First Pattern
+### 6. Local First Pattern
 
 **Overview:** Offline-first architecture with automatic synchronization
 
 **Client Side:** Local database operations with automatic sync
 
-```javascript
+```js
 // Client Implementation
 const todos = useQuery(db.todos.list())
 const addTodo = useMutation(db.todos.add)

@@ -17,8 +17,6 @@
 	let { essay }: ContentCardProps = $props();
 	let { title, excerpt, published, coverImage, coverWidth, coverHeight, slug, generatedSlug } =
 		essay;
-
-	console.log(slug, generatedSlug);
 </script>
 
 <a

@@ -62,7 +62,7 @@
 			<div
 				class="prose prose-p:opacity-90 prose-img:rounded-xl z-20 mx-auto w-5/6 max-w-3xl text-white"
 			>
-				<svelte:component this={PostContent} />
+				{@render PostContent()}
 			</div>
 		</div>
 	</section>
