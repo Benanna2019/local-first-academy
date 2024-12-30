@@ -1,13 +1,26 @@
 import adapter from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import { mdsvex } from 'mdsvex';
+import { escapeSvelte, mdsvex } from 'mdsvex';
+import { bundledLanguages, getSingletonHighlighter } from 'shiki';
 
 const mdsvexConfig = {
 	extensions: ['.md'],
 	layout: false,
 	remarkPlugins: [],
 	rehypePlugins: [],
-	smartypants: false
+	smartypants: false,
+	highlight: {
+		highlighter: async (code, lang = "text") => {
+			const highlighter = await getSingletonHighlighter({
+				themes: ['catppuccin-latte', 'github-dark'],
+				langs: Object.keys(bundledLanguages)
+			})
+			const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme: 'github-dark' }))
+			const cleanedHtml = html.replace(/<span class="line">\s*/g, '<span class="line">');
+
+			return `{@html \`${cleanedHtml.trim()} \`}`
+		}
+	}
 };
 
 /** @type {import('@sveltejs/kit').Config} */

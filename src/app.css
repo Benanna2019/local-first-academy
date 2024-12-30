@@ -2,6 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+pre.shiki,
+pre.shiki.github-dark {
+  background-color: rgb(38, 38, 38) !important;
+  border-radius: 4px;
+  overflow-x: auto !important; /* Enable horizontal scrolling */
+  white-space: pre !important; /* Prevent wrapping */
+  margin-top: 8px;
+  padding: 1rem;
+}
+
+pre.shiki code,
+pre.shiki.github-dark code {
+  display: block; /* Ensure proper block rendering for <code> */
+  white-space: inherit; /* Inherit 'white-space' from <pre> */
+}
+
+pre.shiki .line,
+pre.shiki.github-dark .line {
+  display: block; /* Each line in a block */
+  line-height: 0.5; /* Adjust line spacing */
+}
+
+pre.shiki::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre.shiki::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+pre.shiki::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
 @layer base {
 	:root {
 		--background: 0 0% 100%;
