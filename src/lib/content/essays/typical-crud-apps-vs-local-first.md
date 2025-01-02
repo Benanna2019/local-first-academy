@@ -1,31 +1,31 @@
 ---
-title: "Typical CRUD Apps vs Local First"
+title: 'Typical CRUD Apps vs Local First'
 slug: typical-crud-apps-vs-local-first
-published: "2024-12-27"
-updated: "2024-12-27"
+published: '2024-12-27'
+updated: '2024-12-27'
 categories:
-  - "crud"
-  - "local first"
-  - "development"
-  - "sync"
-  - "web applications"
-coverImage: "/content-images/essays/typical-crud-apps-vs-local-first.png"
+  - 'crud'
+  - 'local first'
+  - 'development'
+  - 'sync'
+  - 'web applications'
+coverImage: '/content-images/essays/typical-crud-apps-vs-local-first.png'
 coverWidth: 16
 coverHeight: 9
 excerpt: Typical CRUD apps vs Local First
 ---
 
-We have a lot of code snippets today as we look at a general landscape of how CRUD based apps are built vs how 
-Local First apps are built. 
+We have a lot of code snippets today as we look at a general landscape of how CRUD based apps are built vs how
+Local First apps are built.
 
 ## Recap of CRUD Apps
 
-The following examples will show us how we got to where we are with current data fetching implementations. 
+The following examples will show us how we got to where we are with current data fetching implementations.
 An interesting pattern we will see is how all of these patterns serve to make apps feel better
-by making the network feel less like a bottleneck. 
+by making the network feel less like a bottleneck.
 
 Note: We are primarily focused on how Local First development helps solve some traditional
-bottlenecks and performance issues with the ways outlined below. That being said, we fully 
+bottlenecks and performance issues with the ways outlined below. That being said, we fully
 believe that the below ways, outside of useEffects 🫣, are perfectly viable ways to build
 web applications.
 
@@ -73,6 +73,7 @@ module.exports = todoController
 This approach is simple and effective, but lacks interactivity without additional JavaScript.
 
 Pros:
+
 - Nice separation of concerns
 - Great for SEO out of the box
 - Fast initial page load
@@ -80,6 +81,7 @@ Pros:
 - Lower client-side complexity
 
 Cons:
+
 - Limited interactivity
 - Full page reloads required
 - Poor user experience for dynamic content
@@ -177,13 +179,13 @@ app.get('/api/todos', async (req, res) => {
 ```
 
 Tanstack Query addresses the common useEffect problems by providing:
+
 - Automatic background updates
 - Built-in caching and invalidation
 - Request deduplication
 - Error handling and retries
 - Optimistic updates
 - You can do optimistic updates, ie update data without waiting for the network, but also have to handle fallbacks.
-
 
 ### 4. Server Components Pattern
 
@@ -227,6 +229,7 @@ export async function GET(request: Request) {
 ```
 
 React Server Components solve several key pain points:
+
 - Eliminate client-server waterfalls
 - Reduce bundle size
 - Improve initial page load
@@ -236,7 +239,6 @@ React Server Components solve several key pain points:
 - Must understand client/server boundaries and component composition.
 - You can do optimistic updates, ie update data without waiting for the network, but also have to handle fallbacks.
 
-
 ### 5. Socket Based Pattern (Convex)
 
 **Overview:** Real-time updates using WebSocket connections
@@ -245,42 +247,44 @@ React Server Components solve several key pain points:
 
 ```js
 // Client Implementation
-const todos = convexQuery(api.todos.list)
+const todos = convexQuery(api.todos.list);
 // const addTodo = useMutation(api.todos.add)
 
 function TodoList() {
-  if (!todos) return <div>Loading...</div>
-  return (
-    <ul>
-      {todos.map(todo => (
-        <li key={todo._id}>{todo.title}</li>
-      ))}
-    </ul>
-  )
+	if (!todos) return <div>Loading...</div>;
+	return (
+		<ul>
+			{todos.map((todo) => (
+				<li key={todo._id}>{todo.title}</li>
+			))}
+		</ul>
+	);
 }
+```
 
 **Query / Mutation Definitions:** With Frameworks using Convex there is not a real server side implementation.
 
+```ts
 // Server Implementation (Convex)
 export const todosList = query({
 	args: {},
 	handler: async (ctx) => {
-    return await ctx.db.query("todos").collect();
-  }
+		return await ctx.db.query('todos').collect();
+	}
 });
 
 export const addTodo = mutation({
-  // check users identity if needed
-  args: {
-	  title: v.string()
-  },
-  handler: async (ctx, args) => {
-	  return await ctx.db.insert("todos", {
-	    title: args.title,
-	    completed: false,
-	    // userId: identity.subject,
-	  });
-  }
+	// check users identity if needed
+	args: {
+		title: v.string()
+	},
+	handler: async (ctx, args) => {
+		return await ctx.db.insert('todos', {
+			title: args.title,
+			completed: false
+			// userId: identity.subject,
+		});
+	}
 });
 ```
 
@@ -301,24 +305,23 @@ export const addTodo = mutation({
 
 ```js
 // Client Implementation
-const todos = useQuery(db.todos.list())
-const addTodo = useMutation(db.todos.add)
+const todos = useQuery(db.todos.list());
+const addTodo = useMutation(db.todos.add);
 
 function TodoList() {
-  return (
-    <div>
-      <button onClick={() => addTodo({ title: "New Todo" })}>
-        Add Todo
-      </button>
-      {todos.map(todo => (
-        <div key={todo.id}>{todo.title}</div>
-      ))}
-    </div>
-  )
+	return (
+		<div>
+			<button onClick={() => addTodo({ title: 'New Todo' })}>Add Todo</button>
+			{todos.map((todo) => (
+				<div key={todo.id}>{todo.title}</div>
+			))}
+		</div>
+	);
 }
 ```
 
 Pros:
+
 - Works offline
 - Instant user feedback
 - Reduced server load
@@ -327,20 +330,19 @@ Pros:
 - Since everything is reactive/real-time, if the data doesn't actually get put in the database, the
   client will fallback to the previous state.
 - Optimistic updates are default and do to syncing, data will automatically fallback
-  if the data doesn't actually get put in the database. 
-  
+  if the data doesn't actually get put in the database.
 
 ### Conclusion
 
 All of these patterns have their place in the current web development ecosystem. Local First
 is exciting for many reasons but, in the most ideal sense, it is a combination of all past data fetching
-implementations and solutions. 
+implementations and solutions.
 
-Not only do not have to think about the network due to syncing, we get optimistic updates with fallbacks, caching, 
+Not only do not have to think about the network due to syncing, we get optimistic updates with fallbacks, caching,
 ability for full offline apps, no spinners i.e. quick apps, and great user experiences as a result.
 
 However, as beautiful as those things are, from an application developer's perspective the ability to
 simply write queries and mutations without having to think for all the separate pieces is a long sought after
-merging of practices and paradigms. 
+merging of practices and paradigms.
 
 Tomorrow we will build a simple Local First application and sync with a remote database.
