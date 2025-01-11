@@ -2,19 +2,19 @@ import { error } from '@sveltejs/kit';
 
 export const load = async () => {
 	try {
-		const essays = await getEssays();
+		const tutorials = await getTutorials();
 		return {
-			essays
+			tutorials
 		};
 	} catch (err) {
 		error(404, String(err));
 	}
 };
 
-async function getEssays() {
-	let essays: Essay[] = [];
+async function getTutorials() {
+	let tutorials: Tutorial[] = [];
 
-	const paths = import.meta.glob('/src/lib/content/essays/*.(md)', { eager: true });
+	const paths = import.meta.glob('/src/lib/content/tutorials/*.(md)', { eager: true });
 
 	const today = new Date();
 	today.setHours(0, 0, 0, 0);
@@ -24,27 +24,27 @@ async function getEssays() {
 		const slug = path.split('/').at(-1)?.replace('.md', '');
 
 		if (file && typeof file === 'object' && 'metadata' in file && slug) {
-			const metadata = file.metadata as Essay;
-			const post = { ...metadata, generatedSlug: slug } satisfies Essay;
+			const metadata = file.metadata as Tutorial;
+			const post = { ...metadata, generatedSlug: slug } satisfies Tutorial;
 
-			// Check if post is published and publication date is today or earlier
+			// ... rest of the check remains the same ...
 			const publishDate = new Date(post.published);
 			publishDate.setHours(0, 0, 0, 0);
 
 			if (post.published && publishDate <= today) {
-				essays.push(post);
+				tutorials.push(post);
 			}
 		}
 	}
 
-	essays = essays.sort(
+	tutorials = tutorials.sort(
 		(first, second) => new Date(second.published).getTime() - new Date(first.published).getTime()
 	);
 
-	return essays;
+	return tutorials;
 }
 
-export interface Essay {
+export interface Tutorial {
 	title: string;
 	slug: string;
 	generatedSlug: string;
@@ -53,6 +53,7 @@ export interface Essay {
 	coverWidth: number;
 	coverHeight: number;
 	published: string;
+	youtubeLink: string;
 	updated?: string;
 	categories: string[];
 }
