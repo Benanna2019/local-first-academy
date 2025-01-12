@@ -20,5 +20,9 @@ jobs:
 
       - name: Trigger deployment
         run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+          # Create and push an empty commit to trigger deployment
           git commit --allow-empty -m "chore: daily deployment trigger"
           git push origin main
