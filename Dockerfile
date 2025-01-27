@@ -36,7 +36,7 @@ RUN pnpm prune --omit=dev
 
 
 # Final stage for app image
-FROM pnpm/pnpm:8
+FROM base
 
 # Copy built application
 COPY --from=build /app/build /app/build
