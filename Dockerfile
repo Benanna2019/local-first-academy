@@ -22,16 +22,16 @@ RUN apt-get update -qq && \
 
 # Install node modules
 COPY .npmrc package-lock.json package.json ./
-RUN npm ci --include=dev
+RUN pnpm ci --include=dev
 
 # Copy application code
 COPY . .
 
 # Build application
-RUN npm run build
+RUN pnpm run build
 
 # Remove development dependencies
-RUN npm prune --omit=dev
+RUN pnpm prune --omit=dev
 
 
 # Final stage for app image
@@ -44,4 +44,4 @@ COPY --from=build /app/package.json /app
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD [ "npm", "run", "start" ]
+CMD [ "pnpm", "run", "start" ]
