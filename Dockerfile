@@ -2,7 +2,7 @@
 
 # Adjust NODE_VERSION as desired
 ARG NODE_VERSION=20.15.1
-FROM node:${NODE_VERSION}-slim as base
+FROM pnpm/pnpm:8
 
 LABEL fly_launch_runtime="SvelteKit"
 
@@ -12,30 +12,31 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV="production"
 
+# Install PNPM
+RUN corepack enable
+RUN corepack prepare pnpm@latest --activate
 
-# Throw-away build stage to reduce size of final image
-FROM base as build
+# Set working directory
+WORKDIR /app
 
-# Install packages needed to build node modules
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
+# Copy package files
+COPY package.json pnpm-lock.yaml ./
 
-# Install node modules
-COPY pnpm-lock.yaml package.json ./
-RUN pnpm ci --include=dev
+# Install dependencies
+RUN pnpm install --frozen-lockfile
 
-# Copy application code
+# Copy the rest of the application
 COPY . .
 
-# Build application
-RUN pnpm run build
+# Build the application
+RUN pnpm build
 
 # Remove development dependencies
 RUN pnpm prune --omit=dev
 
 
 # Final stage for app image
-FROM base
+FROM pnpm/pnpm:8
 
 # Copy built application
 COPY --from=build /app/build /app/build
