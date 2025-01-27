@@ -1,0 +1,356 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+pre.shiki,
+pre.shiki.github-dark {
+	background-color: rgb(38, 38, 38) !important;
+	border-radius: 4px;
+	overflow-x: auto !important; /* Enable horizontal scrolling */
+	white-space: pre !important; /* Prevent wrapping */
+	margin-top: 8px;
+	padding: 1rem;
+}
+
+pre.shiki code,
+pre.shiki.github-dark code {
+	display: block; /* Ensure proper block rendering for <code> */
+	white-space: inherit; /* Inherit 'white-space' from <pre> */
+}
+
+pre.shiki .line,
+pre.shiki.github-dark .line {
+	display: block; /* Each line in a block */
+	line-height: 0.5; /* Adjust line spacing */
+}
+
+pre.shiki::-webkit-scrollbar {
+	height: 8px;
+}
+
+pre.shiki::-webkit-scrollbar-thumb {
+	background: #444;
+	border-radius: 4px;
+}
+
+pre.shiki::-webkit-scrollbar-thumb:hover {
+	background: #666;
+}
+
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 20 14.3% 4.1%;
+
+		--muted: 60 4.8% 95.9%;
+		--muted-foreground: 25 5.3% 44.7%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 20 14.3% 4.1%;
+
+		--card: 0 0% 100%;
+		--card-foreground: 20 14.3% 4.1%;
+
+		--border: 20 5.9% 90%;
+		--input: 20 5.9% 90%;
+
+		--primary: 24 9.8% 10%;
+		--primary-foreground: 60 9.1% 97.8%;
+
+		--secondary: 60 4.8% 95.9%;
+		--secondary-foreground: 24 9.8% 10%;
+
+		--accent: 60 4.8% 95.9%;
+		--accent-foreground: 24 9.8% 10%;
+
+		--destructive: 0 72.2% 50.6%;
+		--destructive-foreground: 60 9.1% 97.8%;
+
+		--ring: 20 14.3% 4.1%;
+
+		--radius: 0.5rem;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+.animate-fade {
+	animation: fade 1.3s forwards;
+}
+
+@keyframes fade {
+	0% {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 100%;
+	}
+}
+
+.reveal {
+	opacity: 0;
+	transform: translateY(-10px);
+}
+
+.animate-fadeSm {
+	animation: fade 0.4s ease-out forwards;
+}
+
+.animate-revealContent {
+	animation: reveal 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.9s forwards;
+}
+
+.animate-revealHero1 {
+	animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+}
+
+.animate-revealHero2 {
+	animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+}
+
+@keyframes reveal {
+	0% {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+
+	to {
+		opacity: 100%;
+		transform: translateY(0);
+	}
+}
+
+.animate-revealHero3 {
+	animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(1turn);
+	}
+}
+
+.animate-spin {
+	animation: spin 1s linear infinite;
+}
+
+.prose {
+	@apply text-gray-50;
+}
+
+.prose blockquote {
+	@apply mt-4 flex items-center border-l-2 border-gray-50 px-4 pt-0 align-middle font-normal;
+}
+
+.prose blockquote p {
+	@apply pt-0;
+}
+
+.prose figure {
+	@apply md:-mx-6;
+}
+
+.prose img {
+	@apply w-full rounded-md;
+}
+
+.prose h1 {
+	@apply text-4xl;
+}
+
+.prose h2 {
+	@apply text-3xl;
+}
+
+.prose h3 {
+	@apply text-2xl;
+}
+
+.prose h4,
+.prose h5,
+.prose h6 {
+	@apply text-xl;
+}
+
+.prose a {
+	@apply break-words font-normal text-blue-500 no-underline hover:underline;
+}
+
+.prose a code {
+	@apply text-blue-500;
+}
+
+.prose table {
+	@apply my-2 rounded-md border border-gray-800 text-gray-50;
+}
+
+.prose.comment table {
+	@apply my-2;
+}
+
+.prose thead {
+	@apply text-gray-200;
+}
+
+.prose thead th {
+	@apply p-2;
+	padding-left: 1rem !important;
+}
+
+.prose thead th,
+.prose tbody th,
+.prose tbody td {
+	@apply border-r border-gray-800;
+	padding-left: 1rem !important;
+}
+
+.prose tbody tr {
+	@apply border-b border-gray-800;
+}
+
+.prose thead tr {
+	@apply border-b-2 border-gray-800;
+}
+
+.prose tbody tr:nth-child(2n) {
+	@apply bg-gray-900;
+}
+
+.prose b,
+.prose strong {
+	@apply font-bold text-gray-50;
+}
+
+.prose hr {
+	@apply border-gray-800;
+}
+
+/* the kg-embed-card gets applied to iframes sent from Ghost. this preserves a good video aspect ratio */
+.prose .kg-embed-card {
+	@apply my-4;
+	position: relative;
+	padding-top: 56.25%;
+}
+
+.prose .kg-embed-card iframe {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+	@apply font-sans font-bold text-gray-100;
+	padding-top: 4rem;
+	scroll-margin-top: 4rem;
+}
+
+.prose h1 a,
+.prose h2 a,
+.prose h3 a,
+.prose h4 a,
+.prose h5 a,
+.prose h6 a {
+	@apply font-sans font-bold text-gray-100 no-underline;
+}
+
+.prose h5 {
+	@apply -mb-3 mt-12 text-xl;
+}
+
+.prose pre {
+	@apply space-y-4 rounded-md border-gray-800 bg-gray-400 bg-opacity-5 px-8 py-6 text-sm text-gray-200;
+}
+
+.prose.comment {
+	@apply max-w-none;
+}
+
+.prose.comment pre {
+	@apply my-2 px-3 py-2;
+}
+
+/* this is needed to avoid HN comments from overflowing off the right edge of the screen */
+.prose p {
+	@apply break-words pt-4;
+	word-break: break-word;
+	font-size: 1.2rem;
+}
+
+.prose.comment p,
+.prose.comment ul,
+.prose.comment ol {
+	@apply my-3;
+}
+
+.prose.comment p:first-of-type {
+	margin-top: 0 !important;
+}
+
+.prose.comment p + p {
+	margin-top: 0;
+}
+
+.prose.comment pre {
+	@apply my-3;
+}
+
+.prose.comment a {
+	@apply break-all;
+}
+
+.prose p + p {
+	margin-top: 0;
+}
+
+.prose code {
+	@apply rounded-md border-gray-800 bg-gray-900 px-1 py-0.5 text-gray-200;
+}
+
+.prose code,
+.prose pre {
+	@apply whitespace-pre-wrap text-sm font-medium;
+	word-break: break-word;
+}
+
+.prose pre > code {
+	@apply bg-gray-800 text-gray-200;
+}
+
+.prose pre {
+	@apply bg-gray-800 text-gray-100;
+}
+
+.prose sup {
+	@apply text-sm text-gray-400;
+	vertical-align: super;
+	top: 0px;
+	position: relative;
+	scroll-margin-top: 4rem;
+}
+
+.prose ul {
+	@apply my-4 ml-6 list-outside list-disc space-y-2;
+}
+
+.prose ol {
+	@apply my-4 ml-6 list-outside list-decimal space-y-2;
+}
+
+.prose li {
+	@apply pl-2;
+}

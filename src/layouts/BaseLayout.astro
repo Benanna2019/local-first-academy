@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "@/components/Header.svelte";
+import SnowFall from "@/components/SnowFall.astro";
+import { ClientRouter } from "astro:transitions";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead />
+    <ClientRouter />
+  </head>
+
+  <body class="bg-black" style="overscroll-behavior: auto; overflow: auto">
+    <div style="display: contents">
+      <Header client:only="svelte" />
+      <SnowFall />
+      <main class="h-max">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

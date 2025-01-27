@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from "astro:content";
+import EssayHead from "@/components/EssayHead.astro";
+import Header from "@/components/Header.svelte";
+import Footer from "@/components/Footer.astro";
+import SnowFall from "@/components/SnowFall.astro";
+import { ClientRouter } from "astro:transitions";
+
+const { title, excerpt, coverImage, coverWidth, coverHeight } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <EssayHead
+      title={title}
+      excerpt={excerpt}
+      coverImage={coverImage}
+      coverWidth={coverWidth}
+      coverHeight={coverHeight}
+    />
+    <ClientRouter />
+  </head>
+
+  <body class="bg-black" style="overscroll-behavior: auto; overflow: auto">
+    <div style="display: contents">
+      <Header client:only="svelte" />
+      <SnowFall />
+      <main class="h-max">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>
