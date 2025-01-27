@@ -1,15 +1,15 @@
-# fly.toml app configuration file generated for lofi-academy-nameless-sunset-7466 on 2024-10-01T20:07:24-04:00
+# fly.toml app configuration file generated for lofi-academy-red-lake-96 on 2025-01-26T21:02:17-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'lofi-academy-nameless-sunset-7466'
-primary_region = 'iad'
+app = 'lofi-academy-red-lake-96'
+primary_region = 'atl'
 
 [build]
 
 [http_service]
-  internal_port = 3000
+  internal_port = 80
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
