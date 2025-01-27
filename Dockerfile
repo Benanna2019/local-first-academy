@@ -21,7 +21,7 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
 
 # Install node modules
-COPY .npmrc package-lock.json package.json ./
+COPY pnpm-lock.yaml package.json ./
 RUN pnpm ci --include=dev
 
 # Copy application code
