@@ -24,7 +24,6 @@ const { title, excerpt, coverImage, coverWidth, coverHeight } = Astro.props;
   <body class="bg-black" style="overscroll-behavior: auto; overflow: auto">
     <div style="display: contents">
       <Header client:only="svelte" />
-      <SnowFall />
       <main class="h-max">
         <slot />
       </main>
