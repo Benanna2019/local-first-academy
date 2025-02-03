@@ -37,6 +37,10 @@ RUN pnpm run build
 # Remove development dependencies
 RUN pnpm prune --prod
 
+# Set host and port for the server
+ENV HOST=0.0.0.0
+ENV PORT=4321
+
 # Final stage for app image
 FROM base
 
