@@ -37,10 +37,14 @@ RUN pnpm run build
 # Remove development dependencies
 RUN pnpm prune --prod
 
-ENV HOST=0.0.0.0
-ENV PORT=4321
-ENV MODE=production
+# Final stage for app image
+FROM base
 
+# Copy built application
+COPY --from=build /app/dist /app/dist
+COPY --from=build /app/node_modules /app/node_modules
+COPY --from=build /app/package.json /app/package.json
+
+# Start the server
 EXPOSE 4321
-
-CMD pnpm run start
+CMD [ "node", "./dist/server/entry.mjs" ]
