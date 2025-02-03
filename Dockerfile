@@ -39,7 +39,7 @@ RUN pnpm prune --prod
 
 # Set host and port for the server
 ENV HOST=0.0.0.0
-ENV PORT=4321
+ENV PORT=80
 
 # Final stage for app image
 FROM base
@@ -50,5 +50,5 @@ COPY --from=build /app/node_modules /app/node_modules
 COPY --from=build /app/package.json /app/package.json
 
 # Start the server
-EXPOSE 4321
+EXPOSE 80
 CMD [ "node", "./dist/server/entry.mjs" ]
